@@ -1,7 +1,8 @@
+# -*- coding: UTF-8 -*-
 nomes=[]
 
 def menu():
-	print '\n 1 - Cadastrar \n 2 - Remover \n 3 - Listar \n 0 - Sair \n'
+	print '\n 1 - Cadastrar \n 2 - Remover \n 3 - Listar \n 4 - Alterar \n 0 - Sair \n'
 	print 'Digite sua escolha: '
 	op=raw_input()
 	
@@ -14,6 +15,9 @@ def menu():
 		menu()
 	if(op=='3'):
 		listar()
+		menu()
+	if(op=='4'):
+		alterar()
 		menu()
 
 def cadastrar():
@@ -32,5 +36,18 @@ def remover():
 def listar():
 	print 'Usuarios cadastrados ate o momento: '
 	print nomes
+
+def alterar():
+	listar()
+	print 'Que nome deseja alterar?'
+	x=raw_input()
+	verifica=x in nomes
+	
+	if(verifica==True):
+		print 'Digite o novo nome:'
+		nome_alterado=raw_input()
+		nomes[nomes.index(x)]=nome_alterado	
+		print 'Nome alterado com sucesso'
+		listar()
 
 menu()
